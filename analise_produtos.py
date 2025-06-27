@@ -14,8 +14,9 @@ except FileNotFoundError:
     st.stop()
 
 # Exibir dados
-st.subheader("📋 Primeiras Linhas da Planilha")
-st.dataframe(df.head())
+df_ordenado = df.sort_values(by="ESTOQUE", ascending=False)
+st.subheader("📋 Todos os produtos ordenados por quantidade em estoque (maior → menor)")
+st.dataframe(df_ordenado, use_container_width=True)
 
 # Exibir colunas
 st.write("📋 Colunas disponíveis: ", df.columns.tolist())
